@@ -30,8 +30,8 @@ spec:
         description: Script params
         default: --help
   steps:
-    - name: oc
-      image: image-registry.openshift-image-registry.svc:5000/fedora-coreos/cosa:src
+    - name: script
+      image: image-registry.openshift-image-registry.svc:5000/fedora-coreos/src:latest
       command: ["/code/scripts/${inputs.params.SCRIPT}"]
       args:
         - "${inputs.params.ARGS}"

@@ -6,3 +6,4 @@ resources:
   - 05-olm-subscription.yaml
   - 06-tekton-task.yaml
   - 07-pipeline.yaml
+  - 08-tekton-rolebinding.yaml

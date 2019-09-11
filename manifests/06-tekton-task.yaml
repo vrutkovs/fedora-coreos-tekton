@@ -31,7 +31,7 @@ spec:
         default: --help
   steps:
     - name: oc
-      image: cosa:src
+      image: image-registry.openshift-image-registry.svc:5000/fedora-coreos/cosa:src
       command: ["/code/scripts/${inputs.params.SCRIPT}"]
       args:
         - "${inputs.params.ARGS}"

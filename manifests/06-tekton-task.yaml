@@ -37,7 +37,7 @@ spec:
         - "${inputs.params.ARGS}"
       volumeMounts:
         - name: kvm
-          mountPath: /var/run/docker.sock
+          mountPath: /dev/kvm
   volumes:
     - name: kvm
       hostPath:

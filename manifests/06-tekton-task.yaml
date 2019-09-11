@@ -35,6 +35,8 @@ spec:
       command: ["/code/scripts/${inputs.params.SCRIPT}.py"]
       args:
         - "${inputs.params.ARGS}"
+      securityContext:
+        privileged: true
       volumeMounts:
         - name: kvm
           mountPath: /dev/kvm

@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: build-fcos
+  namespace: fedora-coreos
+spec:
+  tasks:
+    - name: build-src
+      taskRef:
+        name: openshift-client
+      params:
+        - name: ARGS
+          value: start-build pipeline --wait

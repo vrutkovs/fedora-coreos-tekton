@@ -4,3 +4,5 @@ resources:
   - 03-imagestream-pipeline.yaml
   - 04-buildconfig.yaml
   - 05-olm-subscription.yaml
+  - 06-tekton-task.yaml
+  - 07-pipeline.yaml

@@ -17,3 +17,5 @@ spec:
       params:
         - name: SCRIPT
           value: "init"
+      runAfter:
+        - build-src

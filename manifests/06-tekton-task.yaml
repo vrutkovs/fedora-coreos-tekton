@@ -35,12 +35,15 @@ spec:
       command: ["/code/scripts/${inputs.params.SCRIPT}.py"]
       args:
         - "${inputs.params.ARGS}"
-      securityContext:
-        privileged: true
       volumeMounts:
+        - name: fuse
+          mountPath: /dev/fuse
         - name: kvm
           mountPath: /dev/kvm
   volumes:
+    - name: fuse
+      hostPath:
+        path: /dev/fuse
     - name: kvm
       hostPath:
         path: /dev/kvm

@@ -11,3 +11,9 @@ spec:
       params:
         - name: ARGS
           value: start-build pipeline --wait
+    - name: init
+      taskRef:
+        name: script
+      params:
+        - name: SCRIPT
+          value: "init"

@@ -15,3 +15,23 @@ spec:
       command: ["/usr/local/bin/oc"]
       args:
         - "${inputs.params.ARGS}"
+---
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: script
+  namespace: fedora-coreos
+spec:
+  inputs:
+    params:
+      - name: SCRIPT
+        description: Script to run in cosa image
+      - name: ARGS
+        description: Script params
+        default: --help
+  steps:
+    - name: oc
+      image: cosa:src
+      command: ["/code/scripts/${inputs.params.SCRIPT}"]
+      args:
+        - "${inputs.params.ARGS}"

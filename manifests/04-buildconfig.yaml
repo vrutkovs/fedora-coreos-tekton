@@ -19,7 +19,7 @@ spec:
       uri: https://github.com/vrutkovs/fedora-coreos-tekton
     type: Git
   strategy:
-    sourceStrategy:
+    dockerStrategy:
       from:
         kind: ImageStreamTag
         name: fedora:30

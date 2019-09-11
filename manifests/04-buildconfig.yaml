@@ -22,7 +22,7 @@ spec:
     dockerStrategy:
       from:
         kind: ImageStreamTag
-        name: fedora:30
+        name: cosa:master
     type: Source
   successfulBuildsHistoryLimit: 5
   triggers:

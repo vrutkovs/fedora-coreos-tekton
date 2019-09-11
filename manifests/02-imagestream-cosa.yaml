@@ -1,7 +1,7 @@
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
-  name: fedora
+  name: cosa
   namespace: fedora-coreos
 spec:
   lookupPolicy:
@@ -9,7 +9,7 @@ spec:
   tags:
     - from:
         kind: DockerImage
-        name: "registry.fedoraproject.org/fedora:30"
-      name: "30"
+        name: "quay.io/coreos-assembler/coreos-assembler:master"
+      name: "master"
       referencePolicy:
         type: Local

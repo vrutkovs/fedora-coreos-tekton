@@ -1,6 +1,6 @@
 resources:
   - 01-namespace.yaml
-  - 02-imagestream-fedora.yaml
+  - 02-imagestream-cosa.yaml
   - 03-imagestream-pipeline.yaml
   - 04-buildconfig.yaml
   - 05-olm-subscription.yaml

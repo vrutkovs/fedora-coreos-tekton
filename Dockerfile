@@ -1,3 +1,3 @@
-FROM registry.fedoraproject.org/fedora:30
+FROM coreos-assembler:master
 
 COPY . /code

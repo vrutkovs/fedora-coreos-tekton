@@ -5,17 +5,9 @@ metadata:
   namespace: fedora-coreos
 spec:
   tasks:
-    - name: build-src
-      taskRef:
-        name: openshift-client
-      params:
-        - name: ARGS
-          value: start-build pipeline --wait
     - name: init
       taskRef:
         name: script
       params:
         - name: SCRIPT
           value: "init"
-      runAfter:
-        - build-src

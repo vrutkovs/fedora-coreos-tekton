@@ -31,17 +31,15 @@ spec:
         default: --help
   steps:
     - name: script
-      image: image-registry.openshift-image-registry.svc:5000/fedora-coreos/src:latest
+      image: quay.io/coreos-assembler/coreos-assembler:master
       command: ["/code/scripts/${inputs.params.SCRIPT}.py"]
       args:
         - "${inputs.params.ARGS}"
       resources:
         requests:
           memory: "1Gi"
-          devices.kubevirt.io/kvm: "1"
         limits:
           memory: "1Gi"
-          devices.kubevirt.io/kvm: "1"
       volumeMounts:
         - name: kvm
           mountPath: /dev/kvm

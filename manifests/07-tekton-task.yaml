@@ -1,28 +1,13 @@
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
-  name: openshift-client
-  namespace: fedora-coreos
-spec:
-  inputs:
-    params:
-      - name: ARGS
-        description: The OpenShift CLI arguments to run
-        default: help
-  steps:
-    - name: oc
-      image: quay.io/openshift-pipeline/openshift-cli:latest
-      command: ["/usr/local/bin/oc"]
-      args:
-        - "${inputs.params.ARGS}"
----
-apiVersion: tekton.dev/v1alpha1
-kind: Task
-metadata:
   name: script
   namespace: fedora-coreos
 spec:
   inputs:
+    resources:
+      - name: src
+        type: git
     params:
       - name: SCRIPT
         description: Script to run in cosa image
@@ -32,9 +17,11 @@ spec:
   steps:
     - name: script
       image: quay.io/coreos-assembler/coreos-assembler:master
-      command: ["/code/scripts/${inputs.params.SCRIPT}.py"]
+      command: ["/bin/bash"]
       args:
-        - "${inputs.params.ARGS}"
+        - -c
+        - "git clone --branch ${inputs.resources.src.revision} ${inputs.resources.src.url} /srv/scripts"
+        - "/srv/scripts/${inputs.params.SCRIPT}.py"
       resources:
         requests:
           memory: "1Gi"

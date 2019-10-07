@@ -35,15 +35,17 @@ spec:
       command: ["/code/scripts/${inputs.params.SCRIPT}.py"]
       args:
         - "${inputs.params.ARGS}"
+      resources:
+        requests:
+          memory: "1Gi"
+          devices.kubevirt.io/kvm: "1"
+        limits:
+          memory: "1Gi"
+          devices.kubevirt.io/kvm: "1"
       volumeMounts:
-        - name: fuse
-          mountPath: /dev/fuse
         - name: kvm
           mountPath: /dev/kvm
   volumes:
-    - name: fuse
-      hostPath:
-        path: /dev/fuse
     - name: kvm
       hostPath:
         path: /dev/kvm

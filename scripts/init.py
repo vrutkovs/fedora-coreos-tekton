@@ -7,6 +7,4 @@ import subprocess
 subprocess.check_output(
   ["coreos-assembler", "init", "--force",
    "--branch", "master", "https://github.com/coreos/fedora-coreos-config"])
-
-#TODO: add buildprep
 subprocess.check_output(["coreos-assembler", "fetch"])

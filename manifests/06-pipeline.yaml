@@ -11,3 +11,9 @@ spec:
       params:
         - name: SCRIPT
           value: "init"
+    - name: build
+      taskRef:
+        name: script
+      params:
+        - name: SCRIPT
+          value: "build"

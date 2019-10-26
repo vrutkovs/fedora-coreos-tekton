@@ -3,6 +3,7 @@ resources:
   - 02-imagestream-cosa.yaml
   - 03-imagestream-pipeline.yaml
   - 04-buildconfig.yaml
-  - 05-tekton-task.yaml
+  - 05-tekton-rolebinding.yaml
   - 06-pipeline.yaml
-  - 07-tekton-rolebinding.yaml
+  - 07-tekton-task.yaml
+  - 08-tekton-resource.yaml

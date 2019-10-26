@@ -5,9 +5,6 @@ metadata:
   namespace: fedora-coreos
 spec:
   inputs:
-    resources:
-      - name: src
-        type: git
     params:
       - name: SCRIPT
         description: Script to run in cosa image
@@ -16,11 +13,9 @@ spec:
         default: --help
   steps:
     - name: script
-      image: quay.io/coreos-assembler/coreos-assembler:master
-      command: ["/bin/bash"]
+      image: src:latest
+      command: ["/bin/python3"]
       args:
-        - -c
-        - "git clone --branch ${inputs.resources.src.revision} ${inputs.resources.src.url} /srv/scripts"
         - "/srv/scripts/${inputs.params.SCRIPT}.py"
       resources:
         requests:
